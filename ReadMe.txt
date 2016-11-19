@@ -3,8 +3,6 @@
 ========================================================================
 
 Line32 is designed for running ELF excutable with 32 bits in Windows environment.
-
-And there are some problem for loading default ELF64 excutable's address which is 0x400000 in windows, so if you want to use this ELFloader, you must set the base address of ELF excutable up to 0x800000 or some other address that won't cause windows VirtualAlloc fail. When you compile the ELF excutables, you must set the -fno-stack-protector flag, because the FS segment register in windows different from it in linux.
 Line32 is running under 32 bit x86 cpu, and its function call convention is pretty samilar while an excutable running in windows environment or linux environment. They just put their arguments into stack, so it's very easy to call a windows function in ELF text segment.
 Line32 treat long long unfriendly, it's a little problem when call printf to print the long long integer. 
 A sample makefile looks like below.
